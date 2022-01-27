@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `mydb`.`book4` (
+  `no` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `publisher_cd` INT NOT NULL,
+  PRIMARY KEY (`no`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci
