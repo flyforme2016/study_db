@@ -29,7 +29,7 @@ desc book5;
 insert into book5(
 name
 ) values (
-'4차산업혁명의미래'
+'Sqlplus'
 );
 
 select *from book5;
@@ -38,8 +38,24 @@ insert into review5(
 comment
 ,book5_no
 ) values (
-'개꿀다라쉬'
-,5
+'개꿀다라쉬3'
+,4
 );
 
 select *from review5;
+
+select a.name
+,(select count(*) from review5 where book5_no = a.no) as count
+from book5 as a; 
+
+select a.name
+, b.comment
+from book5 as a
+-- left join review5 as b on b.book5_no = a.no -> null값인 Sqlplus도 join됨
+inner join review5 as b on b.book5_no = a.no -- null값인 Sqlplus는 출력되지 않음
+;
+
+select a.comment
+, b.name
+from review5 as a
+left join book5 as b on b.no = a.book5_no;
